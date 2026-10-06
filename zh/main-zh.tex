@@ -1,0 +1,262 @@
+\documentclass[a4paper,11pt,oneside,openany,fontset=none]{ctexbook}
+\usepackage[UTF8]{ctex}
+
+
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathpazo}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setmonofont{DejaVu Sans Mono}[Scale=0.80]
+
+\setCJKmainfont[BoldFont=FandolSong-Bold, ItalicFont=FandolKai-Regular]{FandolSong-Regular}
+\setCJKsansfont[BoldFont=FandolHei-Bold]{FandolHei-Regular}
+\setCJKmonofont{FandolFang-Regular}
+\newCJKfontfamily\kaiti{FandolKai-Regular}
+\newCJKfontfamily\heiti{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+\newCJKfontfamily\fangsong{FandolFang-Regular}
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{needspace}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{longtable}
+\usepackage{array}
+
+\definecolor{LogicColor}{RGB}{200,80,110}
+\definecolor{ExColor}{RGB}{70,130,180}
+\definecolor{ExBg}{RGB}{240,248,255}
+\definecolor{NoteColor}{RGB}{34,139,34}
+\definecolor{MainText}{RGB}{20,20,20}
+\color{MainText}
+
+\linespread{1.18}
+\widowpenalty=10000
+\clubpenalty=10000
+\emergencystretch=3em
+\raggedbottom
+\setlength{\headheight}{15pt}
+
+\ctexset{
+  chapter = {
+    name = {第,章},
+    number = \chinese{chapter},
+    format = \centering,
+    nameformat = {\kaiti\color{LogicColor}\ziju{0.35}\large},
+    titleformat = {\heiti\color{LogicColor}\fontsize{27pt}{36pt}\selectfont},
+    aftername = {\vspace{1.1em}},
+    beforeskip = 16pt,
+    afterskip = 40pt,
+  }
+}
+
+\titleformat{\section}
+  {\centering\LARGE\bfseries\color{MainText}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{26pt}{16pt}
+
+\titleformat{\subsection}
+  {\centering\large\bfseries\color{MainText}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{20pt}{10pt}
+
+\newcommand{\sectionTitle}[2]{
+  \needspace{5\baselineskip}
+  \phantomsection
+  \addcontentsline{toc}{section}{#2}
+  \section*{#1}
+  \markboth{#1}{}
+}
+\newcommand{\subsectionTitle}[2]{
+  \needspace{4\baselineskip}
+  \subsection*{#1}
+}
+
+\tcbset{
+  commonbox/.style={
+    enhanced jigsaw, breakable,
+    fonttitle=\bfseries\large,
+    attach boxed title to top left={xshift=5mm, yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      frame hidden, opacityback=1, rounded corners, arc=4pt,
+      top=1mm, bottom=1mm, left=2mm, right=2mm
+    },
+    boxrule=0pt, frame hidden,
+    rounded corners, arc=10pt,
+    left=8mm, right=5mm, top=3.2mm, bottom=4mm,
+    middle=1em,
+    before skip=1.5em, after skip=1.1em,
+    fontupper=\fangsong\linespread{1.32}\selectfont
+  }
+}
+\newtcolorbox{exerciseBox}[1]{
+  commonbox,
+  colback=ExBg, colbacktitle=ExColor,
+  title={#1}
+}
+
+\newtcolorbox{movieNote}[1]{
+  enhanced jigsaw, breakable,
+  colback=black!3, boxrule=0pt, frame hidden,
+  borderline west={2.2pt}{0pt}{ExColor},
+  left=4mm, right=4mm, top=1.8mm, bottom=1.8mm,
+  before skip=1.2em, after skip=1.0em,
+  fontupper=\small\itshape,
+  before upper={影片 \texttt{#1} 仅能在本书在线版中观看。}
+}
+
+\newcommand{\inlineImg}[1]{\raisebox{-0.22\height}{\includegraphics[height=1.05em]{#1}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\kaiti\color{MainText} 神经网络与深度学习}
+\fancyhead[R]{\small\itshape\color{MainText} Michael Nielsen}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{{\color{LogicColor}\hrule width\headwidth height \headrulewidth}}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{\small\kaiti\color{MainText} 神经网络与深度学习}
+  \fancyhead[R]{\small\itshape\color{MainText} Michael Nielsen}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.5pt}
+  \renewcommand{\headrule}{{\color{LogicColor}\hrule width \headwidth height \headrulewidth}}
+}
+
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{ExColor}\bfseries,
+  commentstyle=\color{NoteColor},
+  stringstyle=\color{LogicColor},
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!25},
+  backgroundcolor=\color{black!2},
+  xleftmargin=1.2em,
+  framexleftmargin=1.2em,
+  aboveskip=1.1em, belowskip=1.1em
+}
+
+\allowdisplaybreaks[1]
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\leq}{\leqslant}
+
+\usepackage[
+  colorlinks=true,
+  linkcolor=LogicColor,
+  citecolor=ExColor,
+  urlcolor=ExColor,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  unicode=true
+]{hyperref}
+
+\hypersetup{
+  pdftitle={神经网络与深度学习（中文版）},
+  pdfauthor={Michael A. Nielsen（原著）},
+  pdfsubject={神经网络、深度学习},
+  pdfkeywords={神经网络, 深度学习, 机器学习, 中文翻译}
+}
+
+\newcommand{\MakeTitlePageZh}{
+  \begin{titlepage}
+    \centering
+    \vspace*{3.2cm}
+    {\kaiti\fontsize{38pt}{52pt}\selectfont\color{LogicColor} 神经网络\par}
+    \vspace{0.25em}
+    {\kaiti\fontsize{38pt}{52pt}\selectfont\color{LogicColor} 与深度学习\par}
+    \vspace{0.9em}
+    {\large\itshape Neural Networks and Deep Learning\par}
+    \vspace{1.6cm}
+    \includegraphics[width=0.34\textwidth]{images/digits.png}
+    \vfill
+    {\LARGE\scshape Michael Nielsen\par}
+    \vspace{0.7em}
+    {\large\itshape Determination Press\par}
+    \vspace{0.3em}
+    {\large 原书 2015 年初版 · 中译本 2026 年 10 月\par}
+    \vspace{1.5em}
+    {\fangsong\large 译者：LaTeXTrans（NiuTrans）翻译及重排\par}
+    \vspace{0.35em}
+    {\fangsong\large 翻译模型：DeepSeek Chat\par}
+    \vspace{0.35em}
+    {\fangsong\large 译本版本：v1.0（2026 年 10 月）\par}
+    \vspace{1.6cm}
+  \end{titlepage}
+}
+\begin{document}
+
+\frontmatter
+
+\MakeTitlePageZh
+
+\thispagestyle{empty}
+\vspace*{7.2em}
+
+{\small
+\hspace*{1.6em}学术写作中引用本书，请依照原书格式：\par
+\vspace{0.5em}
+\hspace*{1.6em}\emph{Michael A. Nielsen, ``Neural Networks and Deep Learning'', Determination Press, 2015}\par
+\vspace{1.2em}
+\hspace*{1.6em}原书以 Creative Commons Attribution-NonCommercial 3.0 Unported 许可（\texttt{creativecommons.org/licenses/by-nc/3.0}）发布：您可以自由复制、传播和在其基础上再创作，但不得用于商业目的；如需商业使用，请联系原作者.\par
+\vspace{1.2em}
+\hspace*{1.6em}原书免费在线版：\texttt{neuralnetworksanddeeplearning.com}，书中涉及的代码、练习与交互式图表均可在该网站获取.\par
+\vspace{1.2em}
+\hspace*{1.6em}本中译本由 LaTeXTrans（NiuTrans）多智能体翻译系统译出并重排，翻译模型为 DeepSeek Chat；术语与标点遵循 mathtranslations.org《数学译本制作指南》. 译文尚未经人工逐句审校，如发现错误，欢迎对照原书勘正.\par
+\vspace{1.2em}
+\hspace*{1.6em}译文与插图的著作权安排遵循原书许可.\par
+}
+\clearpage
+\chapter*{本书是关于什么的}
+\markboth{本书是关于什么的}{}
+\phantomsection
+\addcontentsline{toc}{chapter}{本书是关于什么的}
+\input{chapters/about}
+\chapter*{关于练习与习题}
+\markboth{关于练习与习题}{}
+\phantomsection
+\addcontentsline{toc}{chapter}{关于练习与习题}
+\input{chapters/exercises_and_problems}
+
+\tableofcontents
+
+\mainmatter
+\chapter{用神经网络识别手写数字}
+\input{chapters/chap1}
+\chapter{反向传播算法的工作原理}
+\input{chapters/chap2}
+\chapter{改进神经网络的学习方式}
+\input{chapters/chap3}
+\chapter{神经网络可以计算任意函数的直观证明}
+\input{chapters/chap4}
+\chapter{为什么深度神经网络难以训练？}
+\input{chapters/chap5}
+\chapter{深度学习}
+\input{chapters/chap6}
+\chapter*{附录：存在智能的\emph{简单}算法吗？}
+\markboth{附录：存在智能的简单算法吗？}{}
+\phantomsection
+\addcontentsline{toc}{chapter}{附录：存在智能的简单算法吗？}
+\input{chapters/sai}
+
+\input{chapters/terminology}
+
+\chapter*{致谢}
+\markboth{致谢}{}
+\phantomsection
+\addcontentsline{toc}{chapter}{致谢}
+\input{chapters/acknowledgements}
+
+\end{document}

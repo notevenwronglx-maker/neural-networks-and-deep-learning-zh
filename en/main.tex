@@ -1,0 +1,270 @@
+% =====================================================================
+%  Neural Networks and Deep Learning — Michael A. Nielsen
+%  LaTeX edition typeset from the author's free online edition
+%  (http://neuralnetworksanddeeplearning.com, CC BY-NC 3.0).
+%
+%  Design adapted from the "Maki 梦幻数学讲义" LaTeX template
+%  (XeLaTeX, TeX Gyre Pagella + mathpazo, rose LogicColor chapter
+%  headings, tcolorbox exercise boxes, rose header rule).
+%
+%  Compile:  latexmk -xelatex main.tex   (2-3 passes for TOC)
+% =====================================================================
+\documentclass[11pt,a4paper,oneside,openany]{book}
+
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathpazo}                  % Palatino math, as in the reference template
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setmonofont{DejaVu Sans Mono}[Scale=0.80]
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{needspace}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+
+% ---------- colours (from the reference template) ----------
+\definecolor{LogicColor}{RGB}{200,80,110}   % rose — chapter titles, rules
+\definecolor{ExColor}{RGB}{70,130,180}      % steel blue — exercise boxes
+\definecolor{ExBg}{RGB}{240,248,255}
+\definecolor{NoteColor}{RGB}{34,139,34}
+\definecolor{MainText}{RGB}{20,20,20}
+\color{MainText}
+
+% ---------- typography ----------
+\linespread{1.10}
+\widowpenalty=10000
+\clubpenalty=10000
+\emergencystretch=3em
+\raggedbottom
+\setlength{\headheight}{14pt}
+
+% ---------- chapter / section headings ----------
+\titleformat{\chapter}[display]
+  {\centering}
+  {\color{LogicColor}\normalsize\bfseries\textls[180]{\chaptertitlename\ \thechapter}}
+  {1.4em}
+  {\fontsize{30pt}{38pt}\selectfont\bfseries\color{LogicColor}}
+\titlespacing*{\chapter}{0pt}{18pt}{46pt}
+
+\titleformat{\section}
+  {\centering\LARGE\bfseries\color{MainText}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{26pt}{16pt}
+
+\titleformat{\subsection}
+  {\centering\large\bfseries\color{MainText}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{20pt}{10pt}
+
+% unnumbered headings (the online book's h3 / h4), with TOC + bookmarks
+\newcommand{\sectionTitle}[2]{%
+  \needspace{5\baselineskip}%
+  \phantomsection
+  \addcontentsline{toc}{section}{#2}%
+  \section*{#1}%
+  \markboth{#2}{}%
+}
+\newcommand{\subsectionTitle}[2]{%
+  \needspace{4\baselineskip}%
+  \subsection*{#1}%
+}
+
+% ---------- exercise boxes (steel blue, as in the reference template) ----------
+\tcbset{
+  commonbox/.style={
+    enhanced jigsaw, breakable,
+    fonttitle=\bfseries\large,
+    attach boxed title to top left={xshift=5mm, yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      frame hidden, opacityback=1, rounded corners, arc=4pt,
+      top=1mm, bottom=1mm, left=2mm, right=2mm
+    },
+    boxrule=0pt, frame hidden,
+    rounded corners, arc=10pt,
+    left=8mm, right=5mm, top=3.2mm, bottom=4mm,
+    middle=1em,
+    before skip=1.5em, after skip=1.1em,
+    fontupper=\linespread{1.32}\selectfont
+  }
+}
+\newtcolorbox{exerciseBox}[1]{
+  commonbox,
+  colback=ExBg, colbacktitle=ExColor,
+  title={#1}
+}
+
+% movie note (videos exist only in the online edition)
+\newtcolorbox{movieNote}[1]{
+  enhanced jigsaw, breakable,
+  colback=black!3, boxrule=0pt, frame hidden,
+  borderline west={2.2pt}{0pt}{ExColor},
+  left=4mm, right=4mm, top=1.8mm, bottom=1.8mm,
+  before skip=1.2em, after skip=1.0em,
+  fontupper=\small\itshape,
+  before upper={The movie \texttt{#1} can be viewed only in the online edition of the book.}
+}
+
+% inline images inside sentences
+\newcommand{\inlineImg}[1]{\raisebox{-0.22\height}{\includegraphics[height=1.05em]{#1}}}
+
+% ---------- headers / footers (rose rule, as in the reference template) ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape\color{MainText} Neural Networks and Deep Learning}
+\fancyhead[R]{\small\itshape\color{MainText} Michael Nielsen}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{{\color{LogicColor}\hrule width\headwidth height \headrulewidth}}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{\small\itshape\color{MainText} Neural Networks and Deep Learning}
+  \fancyhead[R]{\small\itshape\color{MainText} Michael Nielsen}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.5pt}
+  \renewcommand{\headrule}{{\color{LogicColor}\hrule width\headwidth height \headrulewidth}}
+}
+
+% ---------- code listings ----------
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{ExColor}\bfseries,
+  commentstyle=\color{NoteColor},
+  stringstyle=\color{LogicColor},
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!25},
+  backgroundcolor=\color{black!2},
+  xleftmargin=1.2em,
+  framexleftmargin=1.2em,
+  aboveskip=1.1em, belowskip=1.1em
+}
+
+% ---------- maths niceties ----------
+\allowdisplaybreaks[1]
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\leq}{\leqslant}
+
+% ---------- hyperref (last) ----------
+\usepackage[
+  colorlinks=true,
+  linkcolor=LogicColor,
+  citecolor=ExColor,
+  urlcolor=ExColor,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  unicode=true
+]{hyperref}
+
+\hypersetup{
+  pdftitle={Neural Networks and Deep Learning},
+  pdfauthor={Michael A. Nielsen},
+  pdfsubject={Neural networks and deep learning},
+  pdfkeywords={neural networks, deep learning, machine learning}
+}
+
+% ---------- title page ----------
+\newcommand{\BookTitle}{Neural Networks\\[0.30em] and Deep Learning}
+\newcommand{\MakeTitlePage}{%
+  \begin{titlepage}
+    \centering
+    \vspace*{4.2cm}
+    {\fontsize{40pt}{50pt}\selectfont\bfseries\color{LogicColor} \BookTitle\par}
+    \vspace{2.4cm}
+    \includegraphics[width=0.34\textwidth]{images/digits.png}
+    \vfill
+    {\LARGE\scshape Michael Nielsen\par}
+    \vspace{0.9em}
+    {\large\itshape Determination Press\par}
+    \vspace{0.4em}
+    {\large 2015\par}
+    \vspace{2.2cm}
+  \end{titlepage}%
+}
+
+\begin{document}
+
+\frontmatter
+
+\MakeTitlePage
+
+% ---------- colophon ----------
+\thispagestyle{empty}
+\vspace*{8.2em}
+\begin{quote}
+\small
+In academic work, please cite this book as:\\[0.4em]
+\emph{Michael A. Nielsen, ``Neural Networks and Deep Learning'', Determination Press, 2015}\\[1.2em]
+This work is licensed under a Creative Commons Attribution-NonCommercial 3.0
+Unported License (\texttt{creativecommons.org/licenses/by-nc/3.0}). This means
+you're free to copy, share, and build on this book, but not to sell it.
+If you're interested in commercial use, please contact the author.\\[1.2em]
+The free online edition of this book is available at
+\texttt{neuralnetworksanddeeplearning.com}. Code, exercises and the
+interactive figures referenced in the text are available there.\\[1.2em]
+This \LaTeX\ edition was typeset from the author's free online edition;
+the text and figures are the work of Michael A. Nielsen.
+\end{quote}
+\clearpage
+
+% ---------- front matter chapters ----------
+\chapter*{What this book is about}
+\markboth{What this book is about}{}
+\phantomsection
+\addcontentsline{toc}{chapter}{What this book is about}
+\input{chapters/about}
+
+\chapter*{On the exercises and problems}
+\markboth{On the exercises and problems}{}
+\phantomsection
+\addcontentsline{toc}{chapter}{On the exercises and problems}
+\input{chapters/exercises_and_problems}
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{Using neural nets to recognize handwritten digits}
+\input{chapters/chap1}
+
+\chapter{How the backpropagation algorithm works}
+\input{chapters/chap2}
+
+\chapter{Improving the way neural networks learn}
+\input{chapters/chap3}
+
+\chapter{A visual proof that neural nets can compute any function}
+\input{chapters/chap4}
+
+\chapter{Why are deep neural networks hard to train?}
+\input{chapters/chap5}
+
+\chapter{Deep learning}
+\input{chapters/chap6}
+
+% ---------- appendix ----------
+\chapter*{Appendix: Is there a \emph{simple} algorithm for intelligence?}
+\markboth{Appendix: Is there a simple algorithm for intelligence?}{}
+\phantomsection
+\addcontentsline{toc}{chapter}{Appendix: Is there a simple algorithm for intelligence?}
+\input{chapters/sai}
+
+% ---------- back matter ----------
+\chapter*{Acknowledgements}
+\markboth{Acknowledgements}{}
+\phantomsection
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\input{chapters/acknowledgements}
+
+\end{document}

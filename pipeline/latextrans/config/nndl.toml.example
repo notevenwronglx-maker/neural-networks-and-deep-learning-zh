@@ -1,0 +1,21 @@
+sys_name = "LaTeXTrans"
+version = "0.1.0"
+target_language = "ch"
+source_language = "en"
+paper_list = []
+tex_sources_dir = 'tex source'
+output_dir = 'out'
+category = {}
+update_term = "False"
+# mode = 2 enables the terminology-dictionary prompts (user_term below).
+mode = 2
+user_term = 'glossary/nndl_terms.csv'
+
+[llm_config]
+# Any OpenAI-compatible chat endpoint works.  deepseek-chat is a plain chat
+# model; do NOT use a reasoning model here (its reasoning tokens eat the reply
+# budget and the translation gets truncated).
+model = "deepseek-chat"
+api_key = "sk-REPLACE-WITH-YOUR-OWN-KEY"
+base_url = "https://api.deepseek.com/v1/chat/completions"
+timeout = 300

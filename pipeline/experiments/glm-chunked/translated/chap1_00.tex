@@ -1,0 +1,41 @@
+人类视觉系统堪称世界的奇迹之一. 请看下面这串手写数字：
+
+\begin{center}
+\includegraphics[width=0.267\textwidth]{images/digits.png}
+\end{center}
+
+\noindent 大多数人都能毫不费力地认出这些数字是 504192. 这种轻松其实是假象. 在我们大脑的每个半球里，都有一个\emph{初级视觉皮层}（primary visual cortex），也称为 V1，其中包含一亿四千万个神经元，这些神经元之间有着数百亿个连接. 然而，人类视觉不仅仅涉及 V1，还涉及一整个系列的\emph{视觉皮层}（visual cortex）——V2、V3、V4 和 V5——它们执行着越来越复杂的\emph{图像处理}（image processing）. 我们的头脑中就携带着一台超级计算机，它由数亿年的进化调校而成，极其适合用来理解视觉世界. 识别手写数字并不容易. 恰恰相反，我们人类在理解眼睛呈现给我们的东西方面，出色到了令人惊叹的地步. 但几乎所有这些工作都是在无意识中完成的. 因此，我们通常意识不到我们的视觉系统所解决的问题有多么艰难.
+
+
+如果你试图编写一个计算机程序来识别像上面那样的数字，\emph{视觉模式识别}（visual pattern recognition）的困难就变得显而易见了. 我们自己做起来似乎很容易的事，一下子变得极其困难. 关于我们如何识别形状的简单直觉——“9 的顶部有一个圈，右下方有一竖”——结果发现并不那么容易用算法来表达. 而当你试图让这些规则变得精确时，很快就会迷失在例外、附带条件与特殊情况的泥沼中. 看起来毫无希望.
+
+
+\emph{神经网络}（neural network）用另一种方式来处理这个问题. 其思路是取大量的手写数字，称为\emph{训练样本}（training examples），
+
+\begin{center}
+\includegraphics[width=0.733\textwidth]{images/mnist_100_digits.png}
+\end{center}
+
+\noindent 然后开发一个能够从这些训练样本中学习的系统. 换句话说，神经网络利用这些样本自动推断出识别手写数字的规则. 此外，增加训练样本的数量，网络就能学到更多关于手写体的知识，从而提高准确率. 所以，虽然我在上面只展示了 100 个训练数字，但如果使用几千、几百万甚至几十亿个训练样本，我们也许就能构建出更好的手写数字识别器.
+
+
+在本章中，我们将编写一个计算机程序，它实现了一个学习识别手写数字的神经网络. 这个程序只有 74 行，而且没有使用任何专门的神经网络库. 但这个简短的程序在无人干预的情况下，识别数字的准确率就能超过 96%. 此外，在后面的章节中，我们还将发展出一些能把准确率提高到 99% 以上的想法. 事实上，如今最好的商用神经网络已经出色到这样的地步：银行用它们来处理支票，邮局用它们来识别地址.
+
+
+我们之所以聚焦于\emph{手写识别}（handwriting recognition），是因为对于从总体上学习神经网络来说，它是一个绝佳的\emph{原型问题}（prototype problem）. 作为一个原型，它恰好落在最佳位置：它有挑战性——识别手写数字绝非易事——但又不至于难到需要极其复杂的解决方案，或者惊人的计算能力. 此外，它也是发展诸如\emph{深度学习}（deep learning）这类更高级技术的绝佳途径. 因此在整本书中，我们会反复回到手写识别这个问题. 在本书后面，我们还将讨论如何把这些想法应用到\emph{计算机视觉}（computer vision）中的其他问题，以及语音、\emph{自然语言处理}（natural language processing）和其他领域中.
+
+
+当然，如果本章的目的仅仅是编写一个识别手写数字的计算机程序，那么这一章会短得多！但在这个过程中，我们将发展出许多关于神经网络的关键思想，包括两种重要类型的\emph{人工神经元}（artificial neuron）（\emph{感知机}（perceptron）和\emph{S 型神经元}（sigmoid neuron）），以及神经网络的标准学习算法，即所谓的\emph{随机梯度下降}（stochastic gradient descent）. 自始至终，我都着重于解释事情\emph{为什么}要这样做，并着重培养你对神经网络的直觉. 这需要比我仅仅摆出事情背后的基本机制更长的讨论，但为了你将获得的更深入的理解，这是值得的. 作为回报之一，到本章结束时，我们就能够理解什么是深度学习，以及它为什么重要.
+
+
+
+\sectionTitle{感知机}{感知机}
+
+% NEWTERM: 初级视觉皮层 = primary visual cortex
+% NEWTERM: 视觉皮层 = visual cortex
+% NEWTERM: 图像处理 = image processing
+% NEWTERM: 视觉模式识别 = visual pattern recognition
+% NEWTERM: 手写识别 = handwriting recognition
+% NEWTERM: 原型问题 = prototype problem
+% NEWTERM: 计算机视觉 = computer vision
+% NEWTERM: 自然语言处理 = natural language processing

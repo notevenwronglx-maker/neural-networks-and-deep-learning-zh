@@ -1,0 +1,44 @@
+name: build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  english:
+    name: English edition (XeLaTeX)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build en/main.pdf
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: en
+          latexmk_use_xelatex: true
+          args: -interaction=nonstopmode -file-line-error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nndl-en-pdf
+          path: en/main.pdf
+          if-no-files-found: error
+
+  chinese:
+    name: Chinese edition (XeLaTeX)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build zh/main-zh.pdf
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main-zh.tex
+          working_directory: zh
+          latexmk_use_xelatex: true
+          args: -interaction=nonstopmode -file-line-error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nndl-zh-pdf
+          path: zh/main-zh.pdf
+          if-no-files-found: error

@@ -1,0 +1,442 @@
+[
+ {
+  "id": "about_00",
+  "chapter": "about",
+  "chars": 1576
+ },
+ {
+  "id": "about_01",
+  "chapter": "about",
+  "chars": 3740
+ },
+ {
+  "id": "chap1_00",
+  "chapter": "chap1",
+  "chars": 4475
+ },
+ {
+  "id": "chap1_01",
+  "chapter": "chap1",
+  "chars": 7192
+ },
+ {
+  "id": "chap1_02",
+  "chapter": "chap1",
+  "chars": 5250
+ },
+ {
+  "id": "chap1_03",
+  "chapter": "chap1",
+  "chars": 7336
+ },
+ {
+  "id": "chap1_04",
+  "chapter": "chap1",
+  "chars": 3328
+ },
+ {
+  "id": "chap1_05",
+  "chapter": "chap1",
+  "chars": 4568
+ },
+ {
+  "id": "chap1_06",
+  "chapter": "chap1",
+  "chars": 7421
+ },
+ {
+  "id": "chap1_07",
+  "chapter": "chap1",
+  "chars": 7868
+ },
+ {
+  "id": "chap1_08",
+  "chapter": "chap1",
+  "chars": 7071
+ },
+ {
+  "id": "chap1_09",
+  "chapter": "chap1",
+  "chars": 12985
+ },
+ {
+  "id": "chap1_10",
+  "chapter": "chap1",
+  "chars": 2609
+ },
+ {
+  "id": "chap1_11",
+  "chapter": "chap1",
+  "chars": 26699
+ },
+ {
+  "id": "chap1_12",
+  "chapter": "chap1",
+  "chars": 8640
+ },
+ {
+  "id": "chap1_13",
+  "chapter": "chap1",
+  "chars": 6717
+ },
+ {
+  "id": "chap2_00",
+  "chapter": "chap2",
+  "chars": 2452
+ },
+ {
+  "id": "chap2_01",
+  "chapter": "chap2",
+  "chars": 6325
+ },
+ {
+  "id": "chap2_02",
+  "chapter": "chap2",
+  "chars": 3332
+ },
+ {
+  "id": "chap2_03",
+  "chapter": "chap2",
+  "chars": 7574
+ },
+ {
+  "id": "chap2_04",
+  "chapter": "chap2",
+  "chars": 7193
+ },
+ {
+  "id": "chap2_05",
+  "chapter": "chap2",
+  "chars": 4194
+ },
+ {
+  "id": "chap2_06",
+  "chapter": "chap2",
+  "chars": 4849
+ },
+ {
+  "id": "chap2_07",
+  "chapter": "chap2",
+  "chars": 3679
+ },
+ {
+  "id": "chap2_08",
+  "chapter": "chap2",
+  "chars": 6269
+ },
+ {
+  "id": "chap2_09",
+  "chapter": "chap2",
+  "chars": 4392
+ },
+ {
+  "id": "chap2_10",
+  "chapter": "chap2",
+  "chars": 7245
+ },
+ {
+  "id": "chap2_11",
+  "chapter": "chap2",
+  "chars": 3127
+ },
+ {
+  "id": "chap3_00",
+  "chapter": "chap3",
+  "chars": 1976
+ },
+ {
+  "id": "chap3_01",
+  "chapter": "chap3",
+  "chars": 5914
+ },
+ {
+  "id": "chap3_02",
+  "chapter": "chap3",
+  "chars": 11895
+ },
+ {
+  "id": "chap3_03",
+  "chapter": "chap3",
+  "chars": 3713
+ },
+ {
+  "id": "chap3_04",
+  "chapter": "chap3",
+  "chars": 5843
+ },
+ {
+  "id": "chap3_05",
+  "chapter": "chap3",
+  "chars": 5446
+ },
+ {
+  "id": "chap3_06",
+  "chapter": "chap3",
+  "chars": 10537
+ },
+ {
+  "id": "chap3_07",
+  "chapter": "chap3",
+  "chars": 1876
+ },
+ {
+  "id": "chap3_08",
+  "chapter": "chap3",
+  "chars": 7387
+ },
+ {
+  "id": "chap3_09",
+  "chapter": "chap3",
+  "chars": 6410
+ },
+ {
+  "id": "chap3_10",
+  "chapter": "chap3",
+  "chars": 7302
+ },
+ {
+  "id": "chap3_11",
+  "chapter": "chap3",
+  "chars": 5480
+ },
+ {
+  "id": "chap3_12",
+  "chapter": "chap3",
+  "chars": 7319
+ },
+ {
+  "id": "chap3_13",
+  "chapter": "chap3",
+  "chars": 6038
+ },
+ {
+  "id": "chap3_14",
+  "chapter": "chap3",
+  "chars": 7398
+ },
+ {
+  "id": "chap3_15",
+  "chapter": "chap3",
+  "chars": 7908
+ },
+ {
+  "id": "chap3_16",
+  "chapter": "chap3",
+  "chars": 5273
+ },
+ {
+  "id": "chap3_17",
+  "chapter": "chap3",
+  "chars": 9560
+ },
+ {
+  "id": "chap3_18",
+  "chapter": "chap3",
+  "chars": 7527
+ },
+ {
+  "id": "chap3_19",
+  "chapter": "chap3",
+  "chars": 15123
+ },
+ {
+  "id": "chap3_20",
+  "chapter": "chap3",
+  "chars": 5708
+ },
+ {
+  "id": "chap3_21",
+  "chapter": "chap3",
+  "chars": 7193
+ },
+ {
+  "id": "chap3_22",
+  "chapter": "chap3",
+  "chars": 7333
+ },
+ {
+  "id": "chap3_23",
+  "chapter": "chap3",
+  "chars": 8532
+ },
+ {
+  "id": "chap3_24",
+  "chapter": "chap3",
+  "chars": 13183
+ },
+ {
+  "id": "chap3_25",
+  "chapter": "chap3",
+  "chars": 7573
+ },
+ {
+  "id": "chap3_26",
+  "chapter": "chap3",
+  "chars": 4306
+ },
+ {
+  "id": "chap3_27",
+  "chapter": "chap3",
+  "chars": 8985
+ },
+ {
+  "id": "chap3_28",
+  "chapter": "chap3",
+  "chars": 5654
+ },
+ {
+  "id": "chap4_00",
+  "chapter": "chap4",
+  "chars": 4538
+ },
+ {
+  "id": "chap4_01",
+  "chapter": "chap4",
+  "chars": 2390
+ },
+ {
+  "id": "chap4_02",
+  "chapter": "chap4",
+  "chars": 7207
+ },
+ {
+  "id": "chap4_03",
+  "chapter": "chap4",
+  "chars": 7437
+ },
+ {
+  "id": "chap4_04",
+  "chapter": "chap4",
+  "chars": 7473
+ },
+ {
+  "id": "chap4_05",
+  "chapter": "chap4",
+  "chars": 3144
+ },
+ {
+  "id": "chap4_06",
+  "chapter": "chap4",
+  "chars": 2226
+ },
+ {
+  "id": "chap4_07",
+  "chapter": "chap4",
+  "chars": 3014
+ },
+ {
+  "id": "chap4_08",
+  "chapter": "chap4",
+  "chars": 2611
+ },
+ {
+  "id": "chap5_00",
+  "chapter": "chap5",
+  "chars": 6671
+ },
+ {
+  "id": "chap5_01",
+  "chapter": "chap5",
+  "chars": 7551
+ },
+ {
+  "id": "chap5_02",
+  "chapter": "chap5",
+  "chars": 6043
+ },
+ {
+  "id": "chap5_03",
+  "chapter": "chap5",
+  "chars": 7249
+ },
+ {
+  "id": "chap5_04",
+  "chapter": "chap5",
+  "chars": 5767
+ },
+ {
+  "id": "chap5_05",
+  "chapter": "chap5",
+  "chars": 1867
+ },
+ {
+  "id": "chap5_06",
+  "chapter": "chap5",
+  "chars": 2659
+ },
+ {
+  "id": "chap6_00",
+  "chapter": "chap6",
+  "chars": 4531
+ },
+ {
+  "id": "chap6_01",
+  "chapter": "chap6",
+  "chars": 7091
+ },
+ {
+  "id": "chap6_02",
+  "chapter": "chap6",
+  "chars": 7258
+ },
+ {
+  "id": "chap6_03",
+  "chapter": "chap6",
+  "chars": 5883
+ },
+ {
+  "id": "chap6_04",
+  "chapter": "chap6",
+  "chars": 7219
+ },
+ {
+  "id": "chap6_05",
+  "chapter": "chap6",
+  "chars": 14257
+ },
+ {
+  "id": "chap6_06",
+  "chapter": "chap6",
+  "chars": 13923
+ },
+ {
+  "id": "chap6_07",
+  "chapter": "chap6",
+  "chars": 7230
+ },
+ {
+  "id": "chap6_08",
+  "chapter": "chap6",
+  "chars": 7198
+ },
+ {
+  "id": "chap6_09",
+  "chapter": "chap6",
+  "chars": 10077
+ },
+ {
+  "id": "sai_00",
+  "chapter": "sai",
+  "chars": 7335
+ },
+ {
+  "id": "sai_01",
+  "chapter": "sai",
+  "chars": 7537
+ },
+ {
+  "id": "sai_02",
+  "chapter": "sai",
+  "chars": 6595
+ },
+ {
+  "id": "exercises_and_problems_00",
+  "chapter": "exercises_and_problems",
+  "chars": 2070
+ },
+ {
+  "id": "acknowledgements_00",
+  "chapter": "acknowledgements",
+  "chars": 562
+ }
+]
