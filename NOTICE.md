@@ -33,6 +33,12 @@ No additional restrictions may be applied.
 
 **This repository is not for sale and must not be used commercially.**
 
+> The MIT licence in [LICENSE](LICENSE) covers the *software* in this
+> repository only — the converter, the LaTeXTrans book patches, the
+> post-processing and QA tooling, the CI workflow and the LaTeX markup/template
+> code. It does **not** cover the book content, which stays under
+> CC BY-NC 3.0 as described above.
+
 ## Changes made to the original
 
 This repository is an *adaptation*, and the licence requires that the changes be
